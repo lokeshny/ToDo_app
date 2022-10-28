@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:todo_list_app/ui/task_screen.dart';
 
+import 'model/task_data.dart';
+
+
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    home: ChangeNotifierProvider(create: (context) => TaskData(), child: TaskScreen()),
+  ));
+
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: TaskScreen(),
-    );
-  }
-}
-
